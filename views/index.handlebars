@@ -1,0 +1,58 @@
+<script>
+    $(document).ready(function () {
+        $(".btn-pref .btn").click(function () {
+            $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+            // $(".tab").addClass("active"); // instead of this do the below 
+            $(this).removeClass("btn-default").addClass("btn-primary");
+        });
+    });
+</script>
+<link rel="stylesheet" type="text/css" href="/css/profile.css">
+    <div class="row-lg-12 row-sm-12">
+        <div class="card hovercard">
+            <div class="card-background">
+                <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
+                <!-- http://lorempixel.com/850/280/people/9/ -->
+            </div>
+            <div class="useravatar">
+                <img alt="" src="http://lorempixel.com/100/100/people/9/">
+            </div>
+            <div class="card-info">
+                <span class="card-title">{{name}}</span>
+    
+            </div>
+        </div>
+
+<div class="card-columns">
+    {{#userImages}}
+    <div class="card">
+        <img class="card-img-top img-fluid" src="https://s3.amazonaws.com/pkg-insta-clone/{{Key}}" alt="Card image cap">
+        <div class="card-block" style="display:inline-block;">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
+        </div>
+    </div>
+    {{/userImages}}
+</div>
+
+
+
+
+{{!--
+<div class="card-columns">
+    {{#userImages}}
+    <div class="card">
+        <img class="card-img-top img-fluid" src="https://s3.amazonaws.com/pkg-insta-clone/{{Key}}" alt="Card image cap">
+        <div class="card-block" style="display:inline-block;">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
+        </div>
+    </div>
+    {{/userImages}}
+</div> --}}
