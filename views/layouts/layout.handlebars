@@ -1,51 +1,139 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Insta</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-{{!-- <link rel="stylesheet" href="/css/style.css"> --}}
+  <title>Insta</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+<script>
+      function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+// Close the full screen search box 
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
 <body>
-	<div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav navbar pull-right">
-            {{#if user}}
-              <li role="presentation"><a href="/upload">Upload</a></li>
-              <li role="presentation"><a href="/">Dashboard</a></li>
-              <li role="presentation"><a href="/users/logout">Logout</a></li>
-            {{else}}
-              <li role="presentation"><a href="/users/login">Login</a></li>
-              <li role="presentation"><a href="/users/register">Register</a></li>
-            {{/if}}
-          </ul>
-        </nav>
-        <h3 class="text-muted">Insta</h3>
-      </div>
-
-
-      <div class="row">
-        <div class="col-lg-12">
-          {{#if success_msg}}
-            <div class="alert alert-success">{{success_msg}}</div>
-          {{/if}}
-
-          {{#if error_msg}}
-            <div class="alert alert-danger">{{error_msg}}</div>
-          {{/if}}
-
-          {{#if error}}
-            <div class="alert alert-danger">{{error}}</div>
-          {{/if}}
-          
-          {{{body}}}
+  <nav class="navbar navbar-dark bg-primary navbar-fixed-top navbar-expand-md">
+    {{!-- {{#if user}}
+    <form class="form-inline navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <div class="input-group">
+        <div class="input-group-prepend" id="users">
+          <span class="input-group-text" id="seeuser" style="overflow:auto">@</span>
         </div>
-
-        
+        <input type="text" class="form-control mysearch" name="search" placeholder="Find people" aria-label="Username"
+          aria-describedby="basic-addon1">
       </div>
-    </div> <!-- /container -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <div id="divResult">
+  </div>
+    </form>
+    {{/if}} --}}
+    <div class="mx-auto order-0">
+      <a class="navbar-brand mx-auto display-4" href="/">Insta</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+        {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link nav-pills" onclick="openSearch()">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-pills" href="/upload">Upload</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-pills" href="/users/logout">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link nav-pills" href="/users/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-pills" href="/users/register">Register</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    {{!-- <div class="header clearfix">
+      <nav>
+        <ul class="nav navbar pull-right">
+          {{#if user}}
+          <li role="presentation"><a href="/upload">Upload</a></li>
+          <li role="presentation"><a href="/">Dashboard</a></li>
+          <li role="presentation"><a href="/users/logout">Logout</a></li>
+          {{else}}
+          <li role="presentation"><a href="/users/login">Login</a></li>
+          <li role="presentation"><a href="/users/register">Register</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+      <h3 class="text-muted">Insta</h3>
+    </div> --}}
+    <div class="row">
+      <div class="col-lg-12">
+        {{#if success_msg}}
+        <div class="alert alert-success">{{success_msg}}</div>
+        {{/if}}
+
+        {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+        {{/if}}
+
+        {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+        {{{body}}}
+      </div>
+
+
+    </div>
+  </div> <!-- /container -->
+  <div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+  <div class="overlay-content">
+    <form>
+      <input type="text" placeholder="Search.." name="search" id="searchbar">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <ul name="userslist" id="users">
+    </ul>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $("#searchbar").keyup(function (e) {
+         $("#users").html("");
+        e.preventDefault();
+        console.log("helol");
+        var input = { data: $("#searchbar").val() };
+        console.log(input);
+        $.get("/users/search", input, function (data) {
+          if(!data.length)
+          $("#users").append("<li>No users found!!!</li>");
+          else
+          data.forEach(function (names) {
+            $("#users").append("<li><a href=\"/users/"+names.username+"\">"+names.name+"</a></li>");
+          });
+        });
+      });
+    });
+
+  </script>
 </body>
+
 </html>

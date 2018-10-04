@@ -20,6 +20,20 @@ router.get('/login', function (req, res) {
 	res.render('login');
 });
 
+router.get('/search', function(req, res){
+	if(req.query.data){
+		const regex = new RegExp(escapeRegex(req.query.data), 'gi');
+		User.find({name: regex}, function(err, data){
+			if(err)
+				console.log(err);
+			else{
+				console.log(data);
+				res.send(data);
+			}
+		});
+	}
+});
+
 // Register User
 router.post('/register', upload.single('dp'), userDpUpload, function (req, res) {
 	var name = req.body.name;
@@ -124,5 +138,19 @@ router.get('/logout', function (req, res) {
 
 	res.redirect('/users/login');
 });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
+router.get('/:username', function(req, res){
+	var username = req.params.username;
+	User.findOne({username:username},function(err, data){
+		if(err)
+			console.log(err);
+		res.render('index',{user:data});
+	});
+});
+
 
 module.exports = router;

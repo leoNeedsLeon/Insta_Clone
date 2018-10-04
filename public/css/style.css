@@ -1,87 +1,78 @@
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+/* The overlay effect with black background */
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9); /* Black with a little bit see-through */
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-/* Custom page header */
-.header {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
+/* The content */
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 80%;
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
+  margin-top: 30px;
+  margin: auto;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+/* Close button */
+.overlay .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
 }
 
-.page-header{
-  margin-top:0;
+.overlay .closebtn:hover {
+  color: #ccc;
 }
 
-footer{
-  margin-top:40px;
+/* Style the search field */
+.overlay input[type=text] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: white;
+}
+
+.overlay input[type=text]:hover {
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+.overlay button {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay button:hover {
+  background: #bbb;
+}
+
+ul[name="userslist"]{
+  margin: 30px;
+  list-style: none;
+}
+
+ul[name="userslist"]>li, ul[name="userslist"]>li>a{
+  color: white;
+  margin:5px;
+  font-size: 40px;
+  font-weight:600;
+  text-decoration: none;
 }
