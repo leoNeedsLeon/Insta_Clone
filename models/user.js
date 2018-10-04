@@ -15,7 +15,16 @@ var UserSchema = mongoose.Schema({
 	},
 	name: {
 		type: String
-	}
+	},
+	dp:{
+		type: String
+	},
+	images:[
+		{
+			caption:String,
+			location: String
+		}
+	]
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);

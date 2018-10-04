@@ -34,13 +34,13 @@
     margin-top: -200px;
     min-width: 130%;
 }
-.card.hovercard .useravatar {
+.card.hovercard .useravatar{
     position: absolute;
     top: 15px;
     left: 0;
     right: 0;
 }
-.card.hovercard .useravatar img {
+.card.hovercard .useravatar img{
     width: 100px;
     height: 100px;
     max-width: 100px;

@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var multer = require('multer');
+var {userDpUpload} = require('../middleware/s3_handler');
+var upload = multer({
+	storage: multer.memoryStorage()
+});
 
 var User = require('../models/user');
 
@@ -16,12 +21,14 @@ router.get('/login', function (req, res) {
 });
 
 // Register User
-router.post('/register', function (req, res) {
+router.post('/register', upload.single('dp'), userDpUpload, function (req, res) {
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
+	var dp = "https://s3.amazonaws.com/pkg-insta-clone/"+username+"/dp.jpg";
+
 	console.log(req.body);
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -58,7 +65,9 @@ router.post('/register', function (req, res) {
 						name: name,
 						email: email,
 						username: username,
-						password: password
+						password: password,
+						dp:dp,
+						images:[]
 					});
 					User.createUser(newUser, function (err, user) {
 						if (err) throw err;

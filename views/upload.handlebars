@@ -1,4 +1,13 @@
 <form action="/upload" method="POST" enctype="multipart/form-data">
-	<input type="file" name = "newimage">
-	<button type="submit">Submit</button>
+	{{!-- <input type="file" name = "newimage"> --}}
+	{{!-- <button type="submit">Submit</button> --}}
+  <div class="form-group">
+    <label>Choose image to upload: </label>
+    <input type="file" name="newimage">
+  </div>
+  <div class="form-group">
+    <label>Caption: </label>
+    <input type="text" class="form-control" name="caption">
+  </div>
+  <button type="submit">Submit</button>
 </form>
