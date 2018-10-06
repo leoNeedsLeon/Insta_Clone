@@ -1,16 +1,13 @@
-# Node.js Loginapp
+# Node.js Insta Clone
 
-This is a user login and registration app using Node.js, Express, Passport and Mongoose. It is part of the YouTube series [here](https://www.youtube.com/watch?v=Z1ktxiqyiLA)
-
-### Version
-1.1.0
+This is a user instagram clone app using Node.js, Express, Passport and Mongoose.
 
 ### Usage
 
 
 ### Installation
 
-Loginapp requires [Node.js](https://nodejs.org/) v4+ to run.
+Insta Clone requires [Node.js](https://nodejs.org/) v4+ to run.
 
 ```sh
 $ npm install
