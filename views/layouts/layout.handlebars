@@ -18,21 +18,13 @@ function closeSearch() {
   document.getElementById("myOverlay").style.display = "none";
 }
 </script>
+<style>
+  body{
+    background: url(//subtlepatterns.com/patterns/scribble_light.png);
+  }
+</style>
 <body>
   <nav class="navbar navbar-dark bg-primary navbar-fixed-top navbar-expand-md">
-    {{!-- {{#if user}}
-    <form class="form-inline navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-      <div class="input-group">
-        <div class="input-group-prepend" id="users">
-          <span class="input-group-text" id="seeuser" style="overflow:auto">@</span>
-        </div>
-        <input type="text" class="form-control mysearch" name="search" placeholder="Find people" aria-label="Username"
-          aria-describedby="basic-addon1">
-      </div>
-    <div id="divResult">
-  </div>
-    </form>
-    {{/if}} --}}
     <div class="mx-auto order-0">
       <a class="navbar-brand mx-auto display-4" href="/">Insta</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
@@ -63,33 +55,18 @@ function closeSearch() {
     </div>
   </nav>
   <div class="container">
-    {{!-- <div class="header clearfix">
-      <nav>
-        <ul class="nav navbar pull-right">
-          {{#if user}}
-          <li role="presentation"><a href="/upload">Upload</a></li>
-          <li role="presentation"><a href="/">Dashboard</a></li>
-          <li role="presentation"><a href="/users/logout">Logout</a></li>
-          {{else}}
-          <li role="presentation"><a href="/users/login">Login</a></li>
-          <li role="presentation"><a href="/users/register">Register</a></li>
-          {{/if}}
-        </ul>
-      </nav>
-      <h3 class="text-muted">Insta</h3>
-    </div> --}}
     <div class="row">
       <div class="col-lg-12">
         {{#if success_msg}}
-        <div class="alert alert-success">{{success_msg}}</div>
+        <div class="alert alert-success" style="margin-top: 10px;">{{success_msg}}</div>
         {{/if}}
 
         {{#if error_msg}}
-        <div class="alert alert-danger">{{error_msg}}</div>
+        <div class="alert alert-danger" style="margin-top: 10px;">{{error_msg}}</div>
         {{/if}}
 
         {{#if error}}
-        <div class="alert alert-danger">{{error}}</div>
+        <div class="alert alert-danger" style="margin-top: 10px;">{{error}}</div>
         {{/if}}
         {{{body}}}
       </div>

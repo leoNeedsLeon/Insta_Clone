@@ -22,14 +22,6 @@ var s3 = new AWS.S3({apiVersion: '2006-03-01'});
 router.get('/', ensureAuthenticated, function(req, res){
 	var username = req.user.username;
 	var users = {};
-	//console.log(req.user);
-	// s3.listObjects({Bucket: BucketName, Prefix:username},(err, data)=>{
-	// 	if(err)
-	// 		console.log(err);
-	// 	console.log(data);
-	// 	// console.log(data.Contents);
-	// 	res.render('index',{userImages: data.Contents, name:req.user.name});
-	// });
 	User.findOne({username:username},function(err, data){
 		if(err)
 			console.log(err);

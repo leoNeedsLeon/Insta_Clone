@@ -143,7 +143,7 @@ function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
-router.get('/:username', function(req, res){
+router.get('/:username',  function(req, res){
 	var username = req.params.username;
 	User.findOne({username:username},function(err, data){
 		if(err)
