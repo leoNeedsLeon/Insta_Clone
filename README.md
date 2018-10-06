@@ -1,6 +1,6 @@
 # Node.js Insta Clone
 
-This is a user instagram clone app using Node.js, Express, Passport and Mongoose.
+This is a instagram clone app using Node.js, Express, Passport and Mongoose.
 
 ### Usage
 
